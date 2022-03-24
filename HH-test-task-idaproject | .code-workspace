@@ -1,0 +1,13 @@
+{
+    "folders": [
+        {
+            "path": "."
+        },
+        {
+            "path": "../molozhonrieltor.ru"
+        }
+    ],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "molozhonrieltor.ru"
+    }
+}

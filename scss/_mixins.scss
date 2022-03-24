@@ -1,0 +1,12 @@
+// ============= MIXINS =============
+
+// @include display-flex(column, flex-start, center);
+@mixin display-flex($flex-direction, $justify-content, $align-items) {
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    flex-wrap: wrap;
+}
+
+// ============= MIXINS =============

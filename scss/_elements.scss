@@ -1,0 +1,107 @@
+// ============= ELEMENTS =============
+
+h1,
+h2,
+h3 {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: $text-color;
+    width: 100%;
+}
+
+h1 {
+    font-size: 21px;
+    line-height: 29.4px;
+    margin: 0 0 30px 0;
+}
+
+h2 {
+    font-size: 20px;
+    line-height: 26px;
+    margin-bottom: 40px;
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 23.4px;
+}
+
+p,
+span {
+    font-family: PT Root UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: $text-color;
+    margin: 0;
+}
+
+input {
+    font-family: PT Root UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(255, 253, 254, 0.5);
+}
+
+button {
+    font-family: PT Root UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    color: $text-color;
+}
+
+section {
+    @include display-flex(column, flex-start, flex-start);
+    padding: 40px 0 40px 0;
+}
+
+// placeholder
+::-webkit-input-placeholder {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(255, 253, 254, 0.5);
+}
+
+::-moz-placeholder {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(255, 253, 254, 0.5);
+}
+
+/* Firefox 19+ */
+:-moz-placeholder {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(255, 253, 254, 0.5);
+}
+
+/* Firefox 18- */
+:-ms-input-placeholder {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(255, 253, 254, 0.5);
+}
+
+// placeholder
+
+// ============= ELEMENTS =============
