@@ -82,20 +82,4 @@ ul {
     margin-bottom: 0;
 }
 
-img {
-    vertical-align: top;
-    max-width: 100%;
-    object-fit: contain;
-}
-
-.wrapper {
-    @include display-flex(column, flex-start, flex-start);
-    width: 100%;
-    max-width: 1440px;
-    min-height: 100%;
-    margin: 0 auto;
-    padding: 32px 32px;
-    overflow: hidden;
-}
-
 // ============= RESET =============

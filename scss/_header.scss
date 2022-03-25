@@ -1,4 +1,7 @@
 // ============= HEADER.SCSS =============
 
+.header {
+    @include display-flex(column, flex-start, center);
+}
 
 // ============= HEADER.SCSS =============

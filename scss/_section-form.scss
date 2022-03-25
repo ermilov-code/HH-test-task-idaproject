@@ -1,0 +1,150 @@
+// ============= SECTION-FORM.SCSS =============
+
+.section-form {
+
+    @include display-flex(column, flex-start, flex-start);
+    margin-right: 16px;
+    margin-bottom: 16px;
+
+    .product-form {
+        width: 332px;
+        @include display-flex(column, flex-start, flex-start);
+        padding: 24px;
+        background: #FFFEFB;
+        box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
+        border-radius: 4px;
+
+        &__field {
+            position: relative;
+            width: 100%;
+            @include display-flex(column, flex-start, flex-start);
+            margin-bottom: 16px;
+        }
+
+        &__label {
+            margin-bottom: 4px;
+            font-family: 'Source Sans Pro';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 10px;
+            line-height: 13px;
+            letter-spacing: -0.02em;
+            color: #49485E;
+        }
+
+        .required-label {
+            position: relative;
+        }
+
+        .required-label:after {
+            content: "";
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            position: absolute;
+            top: 0px;
+            right: -5px;
+            background-color: $accent-color;
+        }
+
+        &__input {
+            // position: relative;
+            width: 100%;
+            padding: 10px 16px;
+            background: #FFFEFB;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+
+        &__textarea {
+            width: 100%;
+            padding: 10px 16px;
+            background: #FFFEFB;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            resize: none;
+            font-family: 'Source Sans Pro';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+            color: $text-color;
+        }
+
+        &__button {
+            width: 100%;
+            margin-top: 8px;
+            padding: 10px;
+            background: #EEEEEE;
+            border-radius: 10px;
+
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 15px;
+            text-align: center;
+            letter-spacing: -0.02em;
+            color: #B4B4B4;
+        }
+    }
+
+    @media (max-width: 575.98px) {
+
+        width: 100%;
+
+        .product-form {
+            width: 100%;
+        }
+
+    }
+
+    @media (max-width: 767.98px) {}
+
+    @media (max-width: 991.98px) {}
+
+    @media (max-width: 1199.98px) {}
+
+    @media (max-width: 1399.98px) {}
+
+    // стили для невалидного и валидного значения input 
+    .invalid {
+        // background-color: rgba(205, 92, 92, 0.3);
+        border: 1px solid #FF8484;
+        transition: all 0.8s ease 0s;
+    }
+
+    .valid {
+        background-color: #FFFEFB;
+        transition: all 0.8s ease 0s;
+    }
+
+    .error-msg {
+        position: absolute;
+        top: 105%;
+        left: 0px;
+        font-family: 'Source Sanss Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 8px;
+        line-height: 10px;
+        letter-spacing: -0.02em;
+        color: #FF8484;
+    }
+
+    .valid-form-btn {
+        color: #FFFFFF;
+        background: #7BAE73;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.8s ease 0s;
+    }
+
+}
+
+
+
+
+
+
+
+// ============= SECTION-FORM.SCSS =============
