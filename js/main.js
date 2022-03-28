@@ -1,4 +1,26 @@
 // ============================================================
+
+// нам нужно создать два класса - один для карточки товара - другой для списка товаров 
+
+const API = "https://raw.githubusercontent.com/ermilov-code/ap-store/main/json"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Validator {
 
     constructor(form) {
