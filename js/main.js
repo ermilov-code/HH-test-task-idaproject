@@ -61,7 +61,9 @@ class Item {
     constructor(el) {
         this.title = el.title;
         this.description = el.description;
-        this.price = el.price;
+        // Добавление маски разделения тысячных пробелом для поля цены.
+        this.price = el.price.toLocaleString();
+        // this.price = el.price;
         this.id = el.id;
         this.img = el.img;
     }
@@ -80,23 +82,7 @@ class Item {
     <span class="card-product__price">${this.price} руб.</span>
     </div>
     <!-- /.card-product__content-wrap -->
-    <button type="button" class="card-product__delete-button">
-    <svg width="16" height="16" class="card-product__btn-img" xmlns="http://www.w3.org/2000/svg" fill="none"
-        viewBox="0 0 16 16">
-        <g fill="#fff" clip-path="url(#clip0_4_349)">
-        <path
-            d="M10.207 5.797a.375.375 0 0 0-.375.375v7.082a.375.375 0 0 0 .75 0V6.172a.375.375 0 0 0-.375-.375zM5.785 5.797a.375.375 0 0 0-.374.375v7.082a.375.375 0 1 0 .75 0V6.172a.375.375 0 0 0-.376-.375z" />
-        <path
-            d="M2.563 4.763v9.232c0 .546.2 1.058.55 1.426.347.369.832.578 1.338.579h7.09c.507 0 .991-.21 1.339-.579.35-.368.55-.88.55-1.426V4.763a1.431 1.431 0 0 0-.368-2.814h-1.918V1.48A1.472 1.472 0 0 0 9.66 0H6.333a1.472 1.472 0 0 0-1.484 1.48v.469H2.93a1.432 1.432 0 0 0-.367 2.814zm8.978 10.488h-7.09c-.64 0-1.139-.55-1.139-1.256V4.796h9.368v9.2c0 .704-.498 1.255-1.139 1.255zM5.598 1.48a.721.721 0 0 1 .735-.732H9.66a.722.722 0 0 1 .734.731v.469H5.598V1.48zM2.93 2.697h10.132a.674.674 0 1 1 0 1.349H2.93a.674.674 0 1 1 0-1.35z" />
-        <path
-            d="M7.996 5.797a.375.375 0 0 0-.375.375v7.082a.375.375 0 0 0 .75 0V6.172a.375.375 0 0 0-.375-.375z" />
-        </g>
-        <defs>
-        <clipPath id="clip0_4_349">
-            <path fill="#fff" d="M0 0h16v16H0z" />
-        </clipPath>
-        </defs>
-    </svg>
+    <button data-id="${this.id}" type="button" class="card-product__delete-button">
     </button>
 </article>
 			`
@@ -111,7 +97,7 @@ const list2 = {
 let products = new productList();
 
 
-
+// Разработка функционала добавления товара в общий список из формы:
 document.getElementById('button10').addEventListener('click', e => {
     if (!new Validator('product-form').valid) {
         e.preventDefault();
@@ -120,13 +106,15 @@ document.getElementById('button10').addEventListener('click', e => {
             constructor() {
                 this.title = document.getElementById('name').value;
                 this.description = document.getElementById('productDescription').value;
-                this.price = document.getElementById('price').value;
-                this.id = products['goods'].length + 1;
+                // Добавление маски разделения тысячных пробелом для поля цены. 
+                this.price = (+document.getElementById('price').value).toLocaleString();
+                this.id = products['goods'].length + 3;
                 this.img = document.getElementById('link').value;
             }
+
             render() {
                 return `
-        <article class="card-product" data-id="${this.id}">
+        <article class="card-product card-product_none" data-id="${this.id}">
             <img src="${this.img}" alt="${this.title}" class="card-product__img" width="332" height="200">
             <div class="card-product__content-wrap">
             <h3 class="card-product__name">${this.title}</h3>
@@ -136,23 +124,7 @@ document.getElementById('button10').addEventListener('click', e => {
             <span class="card-product__price">${this.price} руб.</span>
             </div>
             <!-- /.card-product__content-wrap -->
-            <button type="button" class="card-product__delete-button">
-            <svg width="16" height="16" class="card-product__btn-img" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 16 16">
-                <g fill="#fff" clip-path="url(#clip0_4_349)">
-                <path
-                    d="M10.207 5.797a.375.375 0 0 0-.375.375v7.082a.375.375 0 0 0 .75 0V6.172a.375.375 0 0 0-.375-.375zM5.785 5.797a.375.375 0 0 0-.374.375v7.082a.375.375 0 1 0 .75 0V6.172a.375.375 0 0 0-.376-.375z" />
-                <path
-                    d="M2.563 4.763v9.232c0 .546.2 1.058.55 1.426.347.369.832.578 1.338.579h7.09c.507 0 .991-.21 1.339-.579.35-.368.55-.88.55-1.426V4.763a1.431 1.431 0 0 0-.368-2.814h-1.918V1.48A1.472 1.472 0 0 0 9.66 0H6.333a1.472 1.472 0 0 0-1.484 1.48v.469H2.93a1.432 1.432 0 0 0-.367 2.814zm8.978 10.488h-7.09c-.64 0-1.139-.55-1.139-1.256V4.796h9.368v9.2c0 .704-.498 1.255-1.139 1.255zM5.598 1.48a.721.721 0 0 1 .735-.732H9.66a.722.722 0 0 1 .734.731v.469H5.598V1.48zM2.93 2.697h10.132a.674.674 0 1 1 0 1.349H2.93a.674.674 0 1 1 0-1.35z" />
-                <path
-                    d="M7.996 5.797a.375.375 0 0 0-.375.375v7.082a.375.375 0 0 0 .75 0V6.172a.375.375 0 0 0-.375-.375z" />
-                </g>
-                <defs>
-                <clipPath id="clip0_4_349">
-                    <path fill="#fff" d="M0 0h16v16H0z" />
-                </clipPath>
-                </defs>
-            </svg>
+            <button data-id="${this.id}" type="button" class="card-product__delete-button">
             </button>
         </article>
                     `
@@ -160,17 +132,44 @@ document.getElementById('button10').addEventListener('click', e => {
         }
 
         let itemFormObj = new itemForm();
+        // itemFormObj['price'].toLocaleString();
         products['goods'].push(itemFormObj)
         products['allProducts'].push(itemFormObj)
+
+        // document.querySelector(".section-goods").insertAdjacentHTML('beforeend', itemFormObj.classList.add('elementDelAnim'));
+
         document.querySelector(".section-goods").insertAdjacentHTML('beforeend', itemFormObj.render());
+
+        // setTimeout(() => {
+        //     document.querySelector(".section-goods").insertAdjacentHTML('beforeend', itemFormObj.render());
+        // }, 1000);
+
+        // document.querySelector(".section-goods").insertAdjacentHTML('beforeend', itemFormObj.classList.add('elementDelAnim'));
+
         // очистка формы 
         document.getElementById('product-form').reset();
     }
 })
 
 
+// Добавление функционала удаления товара из списка:
+document.querySelector('.section-goods').addEventListener('click', e => {
 
+    if (e.target.classList.contains('card-product__delete-button')) {
+        console.log(e.target.dataset['id']);
+        // из нашего массива объектов удалили объект 
+        products['goods'].splice(products['goods'].indexOf(e.target.dataset['id']), 1);
+        products['allProducts'].splice(products['allProducts'].indexOf(e.target.dataset['id']), 1);
 
+        setTimeout(() => {
+            // затем удаляем его визуально из верстки 
+            document.querySelector(`.card-product[data-id="${e.target.dataset['id']}"]`).remove();
+        }, 1000);
+
+        document.querySelector(`.card-product[data-id="${e.target.dataset['id']}"]`).classList.add('elementDelAnim');
+
+    }
+})
 
 
 

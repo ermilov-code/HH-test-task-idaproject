@@ -152,13 +152,21 @@
         box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
         border-radius: 4px;
 
+        &_none {
+            opacity: 1;
+            transform: scale(1);
+        }
+
         &:hover {
             cursor: url('../img/cursor.png'), pointer;
         }
 
-        &__img {}
+        &__img {
+            border-radius: 4px 4px 0 0;
+        }
 
         &__content-wrap {
+            border-radius: 0 0 4px 4px;
             padding: 16px 16px 24px 16px;
             background: #FFFEFB;
         }
@@ -191,13 +199,33 @@
             background: $accent-color;
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            background-image: url(../img/basket-image.svg);
+            background-position: center;
+            background-size: 50%;
+            background-repeat: no-repeat;
+
+        }
+
+        &__btn-img {
+            z-index: 888;
         }
     }
 
     .card-product:hover .card-product__delete-button {
-
         opacity: 1;
         cursor: url('../img/cursor.png'), pointer;
+        transition: all 0.8s ease 0s;
+    }
+
+    .elementDelAnim {
+        opacity: 0;
+        transform: scale(0);
+        transition: all 0.8s ease 0s;
+    }
+
+    .elementAddAnim {
+        opacity: 1;
+        transform: scale(1);
         transition: all 0.8s ease 0s;
     }
 

@@ -41,7 +41,7 @@
           <!-- /.product-form__field -->
           <div class="product-form__field">
             <label for="productPrice" class="product-form__label required-label">Цена товара</label>
-            <input type="text" class="product-form__input" id="price" name="price" placeholder="Введите цену">
+            <input type="number" class="product-form__input" id="price" name="price" placeholder="Введите цену">
           </div>
           <!-- /.product-form__field -->
           <button type="button" id="button10" class="product-form__button">Добавить товар</button>
@@ -79,12 +79,6 @@
       document.getElementById('product-form').addEventListener('input', e => {
         let valid = new Validator('product-form');
       })
-
-      // document.getElementById('product-form').addEventListener('submit', e => {
-      //   if (!new Validator('product-form').valid) {
-      //     e.preventDefault();
-      //   }
-      // })
     }
   </script>
 </body>
