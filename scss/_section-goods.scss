@@ -34,6 +34,7 @@
 
                 .select__content {
                     opacity: 1;
+                    z-index: 1000;
                 }
 
                 .select__label+.select__input+.select__label {
@@ -101,7 +102,7 @@
             border-bottom-right-radius: 5px;
             transition: all 0.3s ease-out;
             opacity: 0;
-            z-index: 8;
+            z-index: 10;
         }
 
         .select__input {
@@ -151,6 +152,7 @@
         background: #FFFEFB;
         box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
         border-radius: 4px;
+        z-index: 990;
 
         &_none {
             opacity: 1;
@@ -166,25 +168,35 @@
         }
 
         &__content-wrap {
+            width: 100%;
             border-radius: 0 0 4px 4px;
             padding: 16px 16px 24px 16px;
             background: #FFFEFB;
         }
 
         &__name {
+            width: 100%;
+            min-height: 25px;
+            overflow-y: scroll;
             font-size: 20px;
             line-height: 25px;
             margin-bottom: 16px;
+            word-wrap: break-word;
         }
 
         &__description {
+            width: 100%;
             margin-bottom: 32px;
+            word-wrap: break-word;
         }
 
         &__price {
+            overflow-y: scroll;
+            width: 100%;
             font-weight: 600;
             font-size: 24px;
             line-height: 30px;
+            word-wrap: break-word;
         }
 
         &__delete-button {
@@ -223,12 +235,21 @@
         transition: all 0.8s ease 0s;
     }
 
-    .elementAddAnim {
-        opacity: 1;
-        transform: scale(1);
-        transition: all 0.8s ease 0s;
+    .card-product_none {
+        animation: elementAppearance 2s;
     }
 
+    @keyframes elementAppearance {
+        0% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
 }
 
 

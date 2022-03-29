@@ -12,6 +12,7 @@
         padding: 24px;
         background: #FFFEFB;
         box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
+
         border-radius: 4px;
 
         &__field {
@@ -52,7 +53,11 @@
             width: 100%;
             padding: 10px 16px;
             background: #FFFEFB;
+
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            -moz-osx-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+
             border-radius: 4px;
         }
 
@@ -60,7 +65,11 @@
             width: 100%;
             padding: 10px 16px;
             background: #FFFEFB;
+
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            -moz-osx-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+
             border-radius: 4px;
             resize: none;
             font-family: 'Source Sans Pro';
@@ -92,6 +101,15 @@
     @media (max-width: 575.98px) {
 
         width: 100%;
+
+        .product-form__input {
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .product-form__textarea {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
 
         .product-form {
             width: 100%;

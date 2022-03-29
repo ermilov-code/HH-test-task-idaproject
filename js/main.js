@@ -1,13 +1,10 @@
 // ============================================================
 
-// нам нужно создать два класса - один для карточки товара - другой для списка товаров 
-
 // API для каталога 
 const API = "https://raw.githubusercontent.com/ermilov-code/HH-test-task-idaproject/main/json"
 
 // класс для списка товаров:
 class productList {
-    // constructor(url, container, list = list2) {
     constructor(container = '.section-goods', url = "/catalogData.json", list = list2) {
         this.container = container;
         // this.list = list;
@@ -17,11 +14,10 @@ class productList {
         this.allProducts = [];
         this._init();
         this.getJson()
-            .then(data => this.handleData(data)); // handleData запускает отрисовку либо каталога товаров, либо списка товаров корзины
+            .then(data => this.handleData(data));
     }
 
     getJson(url) {
-        // : - тернарный оператор - за счет этой конструкции мы делаем конект либо к внешнему файлу - либо к локальному файлу 
         return fetch(url ? url : `${API + this.url}`)
             // json файл преобразуем в объект result => result.json())
             .then(result => result.json())
@@ -29,7 +25,6 @@ class productList {
             .catch(error => {
                 console.log(error);
             })
-        // после вызова getJson - мы получим объект нашей строки json (файла json)
     }
 
     // принимает массив товаров 
@@ -54,9 +49,6 @@ class productList {
     }
 }
 
-// класс Item - это общий (базовый) для товара (либо в корзине - либо в каталоге) - 
-// общие свойства у любого товара: картинка - цена - id 
-// а вот частное свойство - будет количество для корзины
 class Item {
     constructor(el) {
         this.title = el.title;
@@ -67,9 +59,7 @@ class Item {
         this.id = el.id;
         this.img = el.img;
     }
-    // вернем верстку для нашего товара 
-    // если у элемента есть дата атрибут (напр - data-id) - то мы можем к ним обращаться через dataset 
-    // объект event - target 
+    // вернем верстку для нашего товара
     render() {
         return `
 <article class="card-product" data-id="${this.id}">
@@ -132,19 +122,12 @@ document.getElementById('button10').addEventListener('click', e => {
         }
 
         let itemFormObj = new itemForm();
-        // itemFormObj['price'].toLocaleString();
         products['goods'].push(itemFormObj)
         products['allProducts'].push(itemFormObj)
 
-        // document.querySelector(".section-goods").insertAdjacentHTML('beforeend', itemFormObj.classList.add('elementDelAnim'));
-
-        document.querySelector(".section-goods").insertAdjacentHTML('beforeend', itemFormObj.render());
-
-        // setTimeout(() => {
-        //     document.querySelector(".section-goods").insertAdjacentHTML('beforeend', itemFormObj.render());
-        // }, 1000);
-
-        // document.querySelector(".section-goods").insertAdjacentHTML('beforeend', itemFormObj.classList.add('elementDelAnim'));
+        setTimeout(() => {
+            document.querySelector(".section-goods").insertAdjacentHTML('beforeend', itemFormObj.render());
+        }, 300);
 
         // очистка формы 
         document.getElementById('product-form').reset();
@@ -172,13 +155,13 @@ document.querySelector('.section-goods').addEventListener('click', e => {
 })
 
 
-
+// ВАЛИДАЦИЯ ФОРМЫ:
 class Validator {
 
     constructor(form) {
 
         this.patterns = {
-            name: /^[a-zа-яё]+$/i,
+            name: /^[a-zа-яё\s]+$/i,
             link: /^((ftp|http|https):\/\/)?(www\.)?([A-Za-zА-Яа-я0-9]{1}[A-Za-zА-Яа-я0-9\-]*\.?)*\.{1}[A-Za-zА-Яа-я0-9-]{2,8}(\/([\w#!:.?+=&%@!\-\/])*)?/,
             price: /\d{2,15}/,
         };
